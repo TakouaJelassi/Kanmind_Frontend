@@ -35,11 +35,21 @@ async function init() {
         
 }
 
-function renderTitle(){
-    document.getElementById('board_title_link').innerText = currentBoard.title;
-    document.getElementById('board_title').innerText = currentBoard.title;
-}
+function renderTitle() {
+    const link = document.getElementById('board_title_link');
+    const title = document.getElementById('board_title');
 
+    if (!currentBoard || !currentBoard.id) {
+        console.error('currentBoard oder ID fehlt:', currentBoard);
+        return;
+    }
+
+    link.innerText = currentBoard.title;
+    title.innerText = currentBoard.title;
+
+    // WICHTIG: ID in URL übergeben
+    link.href = `./index.html?id=${currentBoard.id}`;
+}
 async function setBoard(){
     let boardResp = await getData(BOARDS_URL + getParamFromUrl("id"));
     if (boardResp.ok) {
