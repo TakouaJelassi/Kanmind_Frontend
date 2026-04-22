@@ -3,7 +3,10 @@ const GUEST_LOGIN = {
     "password": "asdasdasd"
 }
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/';
+const API_BASE_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+    ? 'http://127.0.0.1:8000/api/'
+    : 'https://kanmind-backend-rtam.onrender.com/api/';
+
 
 const LOGIN_URL = 'login/';
 
