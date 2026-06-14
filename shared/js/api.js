@@ -40,8 +40,7 @@ function getAuthUser(){
 }
 
 async function checkMailAddress(mail){
-    // let mailResp = await getData(`${MAIL_CHECK_URL}?email=${encodeURIComponent(mail)}`);
-    let mailResp = await getData(`${MAIL_CHECK_URL}?email=${mail}`);
+    let mailResp = await getData(`${MAIL_CHECK_URL}?email=${encodeURIComponent(mail)}`);
     if (mailResp.ok) {
         return mailResp.data;
     } else {

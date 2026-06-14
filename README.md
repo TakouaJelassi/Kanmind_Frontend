@@ -1,38 +1,51 @@
-# KanMind Frontend Project
+# Kanmind Frontend
 
-![KanMind Logo](assets/icons/logo_icon.svg)
+Vanilla JavaScript frontend for Kanmind, a Kanban-style task management app. It connects to the separate Django REST API and provides authentication, dashboards, boards, tasks, assignments, and comments.
 
-Dieses Projekt ist ein einfaches Frontend, das mit **Vanilla JavaScript** (reines JavaScript ohne Frameworks) erstellt wurde. Es wurde speziell entwickelt, um Schülern der **Developer Akademie** mit Backend-Erfahrung den Einstieg in kleinere Frontend-Anpassungen zu erleichtern.
+## Tech Stack
 
----
+- HTML
+- CSS
+- Vanilla JavaScript
+- Local font and icon assets
+- Browser `fetch` API
 
-## Voraussetzungen
+## Getting Started
 
-- Ein funktionierendes Django-Backend (`KanMind`), das **nicht** in diesem Projekt enthalten ist.
-- Visual Studio Code mit der **Live Server**-Erweiterung oder eine ähnliche Möglichkeit, die `index.html` auf oberster Ebene lokal im Browser zu starten.
+### 1. Start the backend
 
----
+Run the Kanmind backend locally at:
 
-## Nutzung
+```text
+http://127.0.0.1:8000/api/
+```
 
-1. Stelle sicher, dass das Backend `KanMind` läuft.
-2. Öffne dieses Projekt in **Visual Studio Code**.
-3. Rechtsklicke auf die Datei `index.html` auf oberster Ebene und wähle **Open with Live Server**, um das Projekt zu starten.
+### 2. Start the frontend
 
----
+Open this project with a static web server, for example the VS Code Live Server extension.
 
-## Ziel des Projekts
+Start from the root `index.html`. The app redirects authenticated users to the dashboard and unauthenticated users to the login page.
 
-Dieses Frontend wurde bewusst mit **Vanilla JavaScript** erstellt, um die folgenden Ziele zu erreichen:
+## API Configuration
 
-- **Einfacher Einstieg**: Durch den Verzicht auf Frameworks wie React oder Angular bleibt der Code leicht verständlich und nachvollziehbar auch bei wenig Frontend-Erfahrung.
-- **Lernen durch Anpassung**: Schüler können den Code anpassen, um kleine Änderungen vorzunehmen und Frontend-Konzepte besser zu verstehen.
-- **Backend-Erweiterung**: Das Projekt lässt sich einfach an das bestehende Django-Backend `KanMind` anbinden.
+The API base URL is configured in `shared/js/config.js`.
 
----
+- Localhost: `http://127.0.0.1:8000/api/`
+- Production: `https://kanmind-backend-rtam.onrender.com/api/`
 
-## Hinweis
+Adjust `PRODUCTION_API_BASE_URL` when deploying your own backend.
 
-Dieses Projekt ist **ausschließlich für Schüler der Developer Akademie** gedacht und nicht zur freien Nutzung oder Weitergabe freigegeben.
+## Project Structure
 
----
+```text
+Kanmind_Frontend/
+├── assets/       # Fonts, icons, and images
+├── pages/        # Auth, dashboard, boards, board detail, legal pages
+├── shared/       # Shared CSS and JavaScript utilities
+├── index.html    # App entry redirect
+└── README.md
+```
+
+## Portfolio Notes
+
+This repository is intentionally framework-free to demonstrate DOM work, modular JavaScript helpers, API integration, and responsive CSS without a build step.
